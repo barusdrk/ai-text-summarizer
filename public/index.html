@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>AI Text Summarizer</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Theme -->
+
+  <div class="theme-toggle">
+    <button
+      id="themeBtn"
+      onclick="toggleTheme()"
+    >
+      Dark Mode
+    </button>
+  </div>
+
+  <h1>AI Text Summarizer</h1>
+
+  <!-- Authentication -->
+
+  <div id="authSection">
+
+    <div class="auth-card">
+
+      <h2>Create Account</h2>
+
+      <input
+        type="text"
+        id="registerName"
+        placeholder="Full Name"
+      >
+
+      <input
+        type="email"
+        id="registerEmail"
+        placeholder="Email"
+      >
+
+      <input
+        type="password"
+        id="registerPassword"
+        placeholder="Password"
+      >
+
+      <button onclick="register()">
+        Register
+      </button>
+
+    </div>
+
+    <div class="auth-card">
+
+      <h2>Login</h2>
+
+      <input
+        type="email"
+        id="loginEmail"
+        placeholder="Email"
+      >
+
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Password"
+      >
+
+      <button onclick="login()">
+        Login
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Logged In -->
+
+  <div
+    id="userSection"
+    style="display:none;"
+  >
+
+    <div class="user-bar">
+
+      <span>
+        Welcome,
+        <strong id="userName"></strong>
+      </span>
+
+      <button onclick="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Summarizer -->
+
+  <div
+    id="summarizer"
+    style="display:none;"
+  >
+
+    <textarea
+      id="text"
+      placeholder="Paste an article, email, or meeting notes..."
+    ></textarea>
+
+    <div class="stats">
+
+      <span id="wordCount">
+        Words: 0
+      </span>
+
+      <span id="readingTime">
+        Reading Time: 0 min
+      </span>
+
+    </div>
+
+    <div class="options">
+
+      <label for="summaryLength">
+        Summary Length
+      </label>
+
+      <select id="summaryLength">
+
+        <option value="3">
+          Short (3 bullets)
+        </option>
+
+        <option
+          value="5"
+          selected
+        >
+          Medium (5 bullets)
+        </option>
+
+        <option value="10">
+          Detailed (10 bullets)
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="button-group">
+
+      <button onclick="summarize()">
+        Summarize
+      </button>
+
+      <button
+        id="copyBtn"
+        onclick="copySummary()"
+        disabled
+      >
+        Copy Summary
+      </button>
+
+      <button
+        id="pdfBtn"
+        onclick="downloadPDF()"
+        disabled
+      >
+        Download PDF
+      </button>
+
+      <button
+        id="wordBtn"
+        onclick="downloadWord()"
+        disabled
+      >
+        Download Word
+      </button>
+
+    </div>
+
+    <pre id="output"></pre>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
