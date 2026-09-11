@@ -243,17 +243,6 @@ http://localhost:3000
 
 ## Author
 
-Derek Barus
+**Derek Barus**
 
-GitHub: https://github.com/barusdrk
-
-Created as a full-stack AI portfolio project demonstrating:
-
-* AI API integration
-* Full-stack web development
-* User authentication
-* MongoDB database integration
-* RESTful API development
-* Modern JavaScript
-* Responsive UI/UX
-* Document generation (PDF and Word)
+GitHub: [@barusdrk](https://github.com/barusdrk)
